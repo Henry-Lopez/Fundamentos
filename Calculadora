@@ -1,0 +1,23 @@
+int main()
+{
+    int cifra1, cifra2, resultado;
+    cout<<"Ingresar la primera cifra ";
+     cin>>cifra1;
+    cout<<"Ingresar la segunda cifra ";
+      cin>>cifra2;
+      
+    resultado= cifra1+cifra2;
+    cout<<"el resultado de la suma es: "<<resultado<<endl;
+    
+     resultado= cifra1-cifra2;
+    cout<<"el resultado de la resta es: "<<resultado<<endl;
+    
+     resultado= cifra1*cifra2;
+    cout<<"el resultado de la multiplicacion es: "<<resultado<<endl;
+    
+     resultado= cifra1/cifra2;
+    cout<<"el resultado de la division es: "<<resultado<<endl;
+
+
+    return 0;
+}
