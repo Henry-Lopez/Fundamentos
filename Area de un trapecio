@@ -1,0 +1,19 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int basemenor, basemayor, altura, area;
+    cout<<"Ingresar la base menor ";
+     cin>>basemenor;
+    cout<<"Ingresar la base mayor ";
+      cin>>basemayor;
+    cout<<"Ingresar la altura ";
+       cin>>altura;
+    
+    area=((basemenor+basemayor)*altura)/2;
+    cout<<"El area del trapecio es : "<<area;
+
+    return 0;
+}
