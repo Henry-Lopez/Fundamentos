@@ -1,0 +1,33 @@
+#include <iostream>
+
+using namespace std;
+
+    int main() {
+    
+    double A, B, C, D, E, F;
+    cout << "Ingrese los coeficientes y términos constantes para el sistema:" <<endl;
+    cout << "A: ";
+    cin >> A;
+    cout << "B: ";
+    cin >> B;
+    cout << "C: ";
+    cin >> C;
+    cout << "D: ";
+    cin >> D;
+    cout << "E: ";
+    cin >> E;
+    cout << "F: ";
+    cin >> F;
+
+    // Calcula la solución
+    double det = A * E - B * D;
+    if (det == 0) {
+        cout << "El sistema no tiene una solución única." <<endl;
+    } else {
+        double x = (C * E - B * F) / det;
+        double y = (A * F - C * D) / det;
+        cout << "La solución es: x = " << x << ", y = " << y <<endl;
+    }
+
+    return 0;
+}
