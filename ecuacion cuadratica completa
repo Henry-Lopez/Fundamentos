@@ -1,0 +1,38 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    float a,b,c,D,x1,x2,x;
+    cout << "Ingresar variable a: "; cin>>a;
+    if (a==0)
+        {
+            cout<<"no tiene solucion"<<endl;
+            return 0; 
+        }    
+    else
+        cout << "Ingresar varaible b: "; cin>>b;
+        cout << "Ingresar varaible c: "; cin>>c;
+      
+        D= b*b-4*a*c;
+        if (D<0)
+    {
+            x1 = -b/ (2*a); x2 = sqrt(-D) /(2*a); 
+            cout<<"solucion imaginaria 1 = "<<x1<< " + "<< x1<<"i"<<endl;
+            cout<< "solucion imaginaria 2 = "<<x2<< " - "<< x2<<"i"<<endl;
+    }
+    else    
+        if(D==0)
+            {
+            x=-b/(2*a);
+            cout<<"la solucion unica es: "<< x;
+            }
+    else
+    {
+            x1=(-b+ sqrt(D))/(2*a);x2=(-b- sqrt(D))/(2*a);
+            cout<<"solucion unica 1 es: "<<x1<<endl;
+            cout<<"solucion unica 2 es: "<<x2<<endl;
+    }
+     return 0;
+}
