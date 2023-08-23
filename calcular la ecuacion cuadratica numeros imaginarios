@@ -1,0 +1,22 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    float a,b,c,D,x1,x2;
+    cout << "Ingresar variable a: "; cin>>a;
+     cout << "Ingresar varaible b: "; cin>>b;
+      cout << "Ingresar varaible c: "; cin>>c;
+      
+      D= b*b-4*a*c;
+   
+    if (D<0)
+    {
+        x1 = -b/ (2*a); x2 = sqrt(-D) /(2*a); 
+        cout<<"solucion imaginaria 1 = "<<x1<< " + "<< x1<<"i"<<endl;
+        cout<< "solucion imaginaria 2 = "<<x2<< " - "<< x2<<"i"<<endl;
+    }
+
+    return 0;
+}
