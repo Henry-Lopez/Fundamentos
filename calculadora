@@ -1,0 +1,70 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+ int op;
+ float resultado, cifra1, cifra2;
+// // // // // // // // // // // // // // // // // // // // // // // // // // // //     
+    cout<<"Elige una opción para usar la calculadora: "<<endl;
+      cout<<"1 Suma "<<endl;
+        cout<<"2 Resta "<<endl;
+          cout<<"3 Multiplicacion "<<endl;
+            cout<<"4 Division "<<endl;
+            
+               cin>>op;
+// // // // // // // // // // // // // // // // // // // // // // // // // // // //                    
+     if(op >= 5){
+
+     cout<<"Jaja puto";
+
+     }
+      
+      else{
+
+    
+    cout<<"Ingrese el primer digito "; cin>>cifra1;
+    cout<<"Ingrese el segundo digito "; cin>>cifra2;
+// // // // // // // // // // // // // // // // // // // // // // // // // // // //          
+     switch(op){
+
+    case 1:
+   
+     resultado=cifra1+cifra2;
+     cout<<"la suma correspondiente es "<<resultado<<endl;
+     
+    break;
+   
+        case 2:
+      
+        resultado=cifra1-cifra2;
+        cout<<"la resta correspondiente es "<<resultado<<endl;
+      
+        break;
+      
+            case 3:
+         
+           resultado=cifra1*cifra2;
+           cout<<"la multiplicacion correspondiente es "<<resultado<<endl;
+      
+            break;
+      
+                case 4:
+            
+             resultado=cifra1/cifra2;
+             cout<<"la division correspondiente es "<<resultado<<endl;
+
+                break;
+
+    default: 
+           cout<<"Jaja puto"<<endl;
+
+                }
+   cout << "tu resultado es " <<resultado;
+                 }
+
+
+    return 0;
+}
+
