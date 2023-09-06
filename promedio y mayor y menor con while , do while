@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int nums, n, c,mayor,menor;
+    float prom;
+    
+    cout<<"ingrese la cantidad de numeros que desea ingresar uwu: ";cin>>n;
+    
+    c=1;
+    prom=0;
+    mayor=0;
+    menor=100;
+    
+    while (c<=n)
+    {
+            do{
+                cout<<"ingresar el valor numero "<<c<<" = ";cin>>nums;
+                
+            }while ((nums<0)||(nums>100));
+                c++;
+                prom=prom+nums;
+                if(mayor<nums)
+                mayor=nums;
+                if(menor>nums)
+                menor=nums;
+            
+    }
+    prom=prom/n;
+    cout<<"el promedio de los numeros que me has proporcionadoes : "<<prom<<endl;
+    cout<<"el mayor es: "<<mayor<<endl;
+    cout<<"el menor es: "<<menor<<endl;
+    
+    return 0;
+}
