@@ -1,0 +1,55 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int N, M;
+    cout << "Ingrese el valor de N: ";cin >> N;
+    cout << "Ingrese el valor de M: ";cin >> M;
+
+    int suma = 0;
+    int contador = N;
+    int cantidad_numeros = 0;
+
+    while (contador <= M) {
+        suma += contador;
+        contador++;
+        cantidad_numeros++;
+    }
+
+    double promedio = double(suma) / cantidad_numeros;
+
+    cout << "Los numeros desde " << N << " hasta " << M << " son: ";
+    contador = N;
+    while (contador <= M) {
+        cout << contador << " ";
+        contador++;
+    }
+
+    cout << "La suma de los numeros es: " << suma << endl;
+    cout << "El promedio de los numeros es: " << promedio << endl;
+
+    suma = 0;
+    contador = N;
+    cantidad_numeros = 0;
+
+    do {
+        suma += contador;
+        contador++;
+        cantidad_numeros++;
+    } while (contador <= M);
+
+    promedio = double(suma) / cantidad_numeros;
+
+    cout << "Los numeros desde " << N << " hasta " << M << " son: ";
+    contador = N;  
+    do {
+        cout << contador << " ";
+        contador++;
+    } while (contador <= M);
+
+    cout << "La suma de los números es: " << suma << endl;
+    cout << "El promedio de los numeros es: " << promedio << endl;
+
+    return 0;
+}
