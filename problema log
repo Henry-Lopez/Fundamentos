@@ -1,0 +1,17 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main() {
+    double B;
+    
+    cout << "Ingrese el valor de B: "; cin >> B;
+
+        double log_x = B / (1 - 1/8.0);  
+        double x = pow(2, log_x);        
+
+            cout << "El valor de x es: " << x << endl;
+
+    return 0;
+}
