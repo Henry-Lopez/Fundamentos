@@ -1,0 +1,57 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    double total_compras = 0;
+    double total_descuentos = 0;
+
+    while (true) {
+        double monto_compra;
+        cout << "Ingrese el monto de compra del cliente (en bolivianos): "; cin >> monto_compra;
+
+        if (monto_compra <= 0) {
+            cout << "Programa finalizado." << endl;
+            break;
+        }
+
+        double descuento = 0;
+        double bono = 0;
+
+        if (monto_compra <= 100) {
+            descuento = 0;
+        } else if (monto_compra <= 500) {
+            descuento = monto_compra * 0.025;  
+        } else if (monto_compra <= 1000) {
+            descuento = monto_compra * 0.045;  
+        } else if (monto_compra > 1000) {
+            descuento = monto_compra * 0.08;  
+        }
+
+        if (monto_compra > 300) {
+            bono = 20;  
+        }
+
+        double monto_a_pagar = monto_compra - descuento + bono;
+        total_compras += monto_compra;
+        total_descuentos += descuento;
+
+        cout << "Monto de compra: " << monto_compra << " Bs" << endl;
+        cout << "Descuento aplicado: " << descuento << " Bs" << endl;
+        cout << "Vale generado: " << bono << " Bs" << endl;
+        cout << "Monto a pagar: " << monto_a_pagar << " Bs" << endl;
+        cout << "Total de compras del turno: " << total_compras << " Bs" << endl;
+        cout << "Total de descuentos aplicados: " << total_descuentos << " Bs" << endl;
+
+        // Pregunta si desea continuar o salir
+        char continuar;
+        cout << "¿Desea continuar (S/N)? "; cin >> continuar;
+
+        if (continuar == 'N' || continuar == 'n') {
+            cout << "Programa finalizado por el usuario." << endl;
+            break;
+        }
+    }
+
+    return 0;
+}
