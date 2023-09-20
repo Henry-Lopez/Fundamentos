@@ -1,0 +1,22 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int N, C, acum = 1;    // acumulador empieza en 1 porque es el numero neutro de la multiplicacion //acum seria como mi prom y N el numero que quiero multiplicar N veces
+   
+    // validar los datos de entrada
+    
+    do{
+        cout << "Ingrese el numero de elementos: "; cin >> N;   // ingresa el numero de elementos que quiere multiplicar
+    } while (N < 0);    // declarar que N no puede ser negativo ni 0
+    
+    for (C = 1; C <= N; C++) // declarar C como contador y darle su valor inicial , luego la condicion , luego cuanto queremos que aunmente en cada repeticion
+    
+        acum = acum * C; // operacion
+    
+    cout<<"El Factorial de "<< N <<" es : "<<acum;// de N numeros sacamos factorial
+
+    return 0;
+}
