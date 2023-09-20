@@ -1,0 +1,23 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int N, C, signo=1;
+    float acum = 0;
+    do{
+        cout << "Ingrese el numero de elementos: "; cin >> N;  
+    } while (N < 0);    
+
+    for (C = 1; C <= N; C++)
+
+        acum = acum + (signo * C);
+        signo = -1*signo;
+        
+    cout<<"La sumatoria es: "<<acum;
+
+    return 0;
+}
+
+
