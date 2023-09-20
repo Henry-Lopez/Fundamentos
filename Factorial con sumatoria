@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    int N, C, X, signo = 1, acum = 0, F=1;//X se calcula , F es factorial y acum inicia en 0    
+    // un do while  para cada condiciones 
+    do{
+        cout << "Ingrese el numero de elementos: "; cin >> N;  
+    } while (N < 0);    
+    do {
+        cout << "Ingrese el Valor de X "; cin >> X;
+    } while (X < 0);
+
+    for (C = 1; C <= N; C++) 
+       
+        F = F * C;//F representa el factorial
+        acum = acum + signo*pow(X,C)/F;
+        signo = -signo;
+
+    cout<<"La sumatoria es: "<<acum;
+
+    return 0;
+}
+
