@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int n,p1,p2,p3,pr1,pr2,pr3;
+       
+    cout<<"Ingresar la cantidad de alumnos: "; cin>>n;
+    
+    
+    for(int i=1 ; i<=n ; i++)
+        {
+        cout<<"ingresar la nota de su primer parcial del alumno numero "<<i<<" : ";cin>>p1;
+        cout<<"ingresar la nota de su segundo parcial del alumno numero "<<i<<" : ";cin>>p2;
+        cout<<"ingresar la nota de su tercer parcial del alumno numero " <<i<<" : ";cin>>p3;
+        if(i==1)
+        {
+        pr1=(p1+p2+p3)/3;
+        }
+         if(i==2)
+        {
+        pr2=(p1+p2+p3)/3;
+        }
+         if(i==3)
+        {
+        pr3=(p1+p2+p3)/3;
+        }
+        system("clear");
+        }
+        cout <<"El promedio del alumno numero 1 es : "<<pr1<<endl;
+        cout <<"El promedio del alumno numero 2 es : "<<pr2<<endl;
+        cout <<"El promedio del alumno numero 3 es : "<<pr3<<endl;
+    
+    
+    return 0;
+}
