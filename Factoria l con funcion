@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int Calcularfactorial(int n);
+
+int main()
+{
+    int n , x;
+
+ cout << "Ingrese el factorial que desea calcular : "; cin >> n;
+ x = Calcularfactorial(n);
+ cout << "el resultado del factorial " << n << " es : " << x << endl;
+
+ return 0;
+}
+int Calcularfactorial(int n) {
+    int fac = 1;
+    for (int i = 1; i <= n; i++)
+    {
+        fac = fac * i;
+    }
+    return fac;
+}
