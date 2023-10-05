@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+
+float Calcular_Suma(float n1, float n2);
+float Calcular_Resta(float n1, float n2);
+float Calcular_Multiplicacion(float n1, float n2);
+float Calcular_Division(float n1, float n2);
+
+int main() {
+    float n1, n2;
+    int n;
+
+    do {
+        cout << "Ingresar numero 1: ";
+        cin >> n1;
+        cout << "Ingresar numero 2: ";
+        cin >> n2;
+
+        cout << "*MENU*" << endl;
+        cout << "1. Suma" << endl;
+        cout << "2. Resta" << endl;
+        cout << "3. Multiplicacion" << endl;
+        cout << "4. Division" << endl;
+        cout << "0. Salir" << endl;
+        cin >> n;
+
+        switch (n) {
+            case 1:
+                cout << "El resultado de la Suma de " << n1 << " y " << n2 << " es: " << Calcular_Suma(n1, n2) << endl;
+                break;
+            case 2:
+                cout << "El resultado de la Resta de " << n1 << " y " << n2 << " es: " << Calcular_Resta(n1, n2) << endl;
+                break;
+            case 3:
+                cout << "El resultado de la Multiplicacion de " << n1 << " y " << n2 << " es: " << Calcular_Multiplicacion(n1, n2) << endl;
+                break;
+            case 4:
+                cout << "El resultado de la division de " << n1 << " y " << n2 << " es: " << Calcular_Division(n1, n2) << endl;
+                break;
+            case 0:
+                cout << "Gracias por usar mi calculadora >< " << endl;
+                break;
+            default:
+                cout << "No existe esa funcion" << endl;
+                break;
+        }
+    } while (n != 0);
+
+    return 0;
+}
+
+float Calcular_Suma(float n1, float n2) {
+    float x;
+    x = n1 + n2;
+    return x;
+}
+
+float Calcular_Resta(float n1, float n2) {
+    float x;
+    x = n1 - n2;
+    return x;
+}
+
+float Calcular_Multiplicacion(float n1, float n2) {
+    float x;
+    x = n1 * n2;
+    return x;
+}
+
+float Calcular_Division(float n1, float n2) {
+    if (n2 == 0) {
+        cout << "Error: Division por cero" << endl;
+        return 0; 
+    }
+    float x;
+    x = n1 / n2;
+    return x;
+}
