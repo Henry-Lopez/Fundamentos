@@ -1,0 +1,97 @@
+#include <iostream> //Henry Alexander Lopez Calleja
+#include <string>
+using namespace std;
+
+void ingresarProducto(string productos[], int ventas[], int& numProductos);
+void registrarVenta(string productos[], int ventas[], int numProductos);
+void calcularVentasTotales(int ventas[], int numProductos);
+
+int main() {
+    string productos[100];
+    int ventas[100] = { 0 };
+    int numProductos = 0;
+    char opcion;
+
+    do {
+        cout << "MENU:" << endl;
+        cout << "1. Ingresar Producto" << endl;
+        cout << "2. Registrar Venta" << endl;
+        cout << "3. Calcular Ventas Totales" << endl;
+        cout << "4. Salir" << endl;
+        cout << "Seleccione una opcion: ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case '1':
+            ingresarProducto(productos, ventas, numProductos);
+            break;
+        case '2':
+            registrarVenta(productos, ventas, numProductos);
+            break;
+        case '3':
+            calcularVentasTotales(ventas, numProductos);
+            break;
+        case '4':
+            cout << "Saliendo del programa." << endl;
+            break;
+        default:
+            cout << "Opción no válida. Por favor, elija una opcion valida." << endl;
+        }
+    } while (opcion != '4');
+
+    return 0;
+}
+
+void ingresarProducto(string productos[], int ventas[], int& numProductos) {
+    if (numProductos < 100) {
+        string nombreProducto;
+        cout << "Ingrese el nombre del producto: ";
+        cin >> nombreProducto;
+        productos[numProductos] = nombreProducto;
+        ventas[numProductos] = 0;
+        numProductos++;
+        cout << "Producto ingresado exitosamente." << endl;
+    }
+    else {
+        cout << "Se ha alcanzado el maximo de productos." << endl;
+    }
+}
+
+void registrarVenta(string productos[], int ventas[], int numProductos) {
+    if (numProductos == 0) {
+        cout << "No hay productos registrados. Por favor, ingrese un producto primero." << endl;
+        return;
+    }
+
+    string nombreProducto;
+    int montoVenta = 0;
+    int encontrado = -1;
+
+    cout << "Ingrese el nombre del producto: ";
+    cin >> nombreProducto;
+
+    for (int i = 0; i < numProductos; i++) {
+        if (productos[i] == nombreProducto) {
+            encontrado = i;
+            break;
+        }
+    }
+
+    if (encontrado != -1) {
+        cout << "Ingrese el monto de la venta: ";
+        cin >> montoVenta;
+        ventas[encontrado] += montoVenta;
+        cout << "Venta registrada exitosamente." << endl;
+    }
+    else {
+        cout << "El producto no se encuentra en la lista." << endl;
+    }
+}
+
+void calcularVentasTotales(int ventas[], int numProductos) {
+    int ventasTotales = 0;
+    for (int i = 0; i < numProductos; i++) {
+        ventasTotales += ventas[i];
+    }
+    cout << "Ventas totales realizadas: " << ventasTotales<<" Bs " << endl;
+}
