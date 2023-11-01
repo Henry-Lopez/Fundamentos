@@ -1,0 +1,37 @@
+//EJERCICIO 7 //Henry Alexander Lopez Calleja
+#include <iostream>
+using namespace std;
+
+string numeroAPalabra(int numero);
+int main() {
+    int n;
+    do {
+        cout << "ingresar un numero del 1 al 20 para" << endl;
+        cin >> n;
+    } while (n <= 20 || n >= 1);
+
+    for (int i = 0; i <= 20; i++) {
+        if (n == i) {
+            string palabra = numeroAPalabra(i);
+            cout << n << " : " << palabra << endl;
+        }
+        else;
+    }
+
+    return 0;
+}
+
+string numeroAPalabra(int numero) {
+    string palabras[] = {
+        "CERO", "UNO", "DOS", "TRES", "CUATRO", "CINCO", "SEIS", "SIETE",
+        "OCHO", "NUEVE", "DIEZ", "ONCE", "DOCE", "TRECE", "CATORCE", "QUINCE",
+        "DIECISEIS", "DIECISIETE", "DIECIOCHO", "DIECINUEVE", "VEINTE"
+    };
+
+    if (numero >= 0 && numero <= 20) {
+        return palabras[numero];
+    }
+    else {
+        return "Número fuera de rango";
+    }
+}
