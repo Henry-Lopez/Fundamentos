@@ -1,0 +1,96 @@
+#include <iostream>
+#include <fstream>
+#include <string>
+
+using namespace std;
+
+// Prototipos de funciones
+void insertarUsuario(const string& usuario, const string& contrasena);
+void modificarUsuario(const string& usuario, const string& nuevaContrasena);
+void listarUsuarios();
+bool consultarUsuario(const string& usuario, const string& contrasena);
+
+int main() {
+    // Ejemplo de uso
+    insertarUsuario("usuario1", "contrasena1");
+    insertarUsuario("usuario2", "contrasena2");
+    
+    modificarUsuario("usuario1", "nuevaContrasena");
+    
+    cout << "Lista de usuarios:\n";
+    listarUsuarios();
+    
+    // Consultar usuario
+    if (consultarUsuario("usuario1", "nuevaContrasena")) {
+        cout << "Usuario autenticado.\n";
+    } else {
+        cout << "Credenciales incorrectas.\n";
+    }
+    
+    return 0;
+}
+
+void insertarUsuario(const string& usuario, const string& contrasena) {
+    ofstream archivo("usuarios.txt", ios::app);
+    if (archivo.is_open()) {
+        archivo << usuario << " " << contrasena << endl;
+        archivo.close();
+    } else {
+        cout << "Error al abrir el archivo.\n";
+    }
+}
+
+void modificarUsuario(const string& usuario, const string& nuevaContrasena) {
+    ifstream archivoEntrada("usuarios.txt");
+    ofstream archivoSalida("temp.txt");
+
+    if (archivoEntrada.is_open() && archivoSalida.is_open()) {
+        string line;
+        while (getline(archivoEntrada, line)) {
+            size_t pos = line.find(usuario);
+            if (pos != string::npos) {
+                line.replace(pos + usuario.length() + 1, line.length(), nuevaContrasena);
+            }
+            archivoSalida << line << endl;
+        }
+
+        archivoEntrada.close();
+        archivoSalida.close();
+
+        remove("usuarios.txt");
+        rename("temp.txt", "usuarios.txt");
+    } else {
+        cout << "Error al abrir el archivo.\n";
+    }
+}
+
+void listarUsuarios() {
+    ifstream archivo("usuarios.txt");
+    if (archivo.is_open()) {
+        string line;
+        while (getline(archivo, line)) {
+            cout << line << endl;
+        }
+        archivo.close();
+    } else {
+        cout << "Error al abrir el archivo.\n";
+    }
+}
+
+bool consultarUsuario(const string& usuario, const string& contrasena) {
+    ifstream archivo("usuarios.txt");
+    if (archivo.is_open()) {
+        string line;
+        while (getline(archivo, line)) {
+            size_t pos = line.find(usuario + " " + contrasena);
+            if (pos != string::npos) {
+                archivo.close();
+                return true;
+            }
+        }
+        archivo.close();
+    } else {
+        cout << "Error al abrir el archivo.\n";
+    }
+    return false;
+}
