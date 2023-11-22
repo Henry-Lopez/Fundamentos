@@ -1,0 +1,109 @@
+#include <iostream>
+#include <string>
+#define maxproductos 100
+using namespace std;
+
+string productos[maxproductos];
+float precios[maxproductos];
+int cantidadProductos = 0;
+
+int RegistrarProducto();
+float CalcularPrecioTotal();
+void EncontrarProductoMasCaro();
+void MostrarListaProductos();
+
+int main() {
+    while (true) {
+        cout << "--------Seleccione una opción:--------- "<< endl;
+        cout << "1. Registrar Producto y Precio          "<< endl;
+        cout << "2. Calcular Precio Total                "<< endl;
+        cout << "3. Encontrar Producto más Caro          "<< endl;
+        cout << "4. Mostrar Lista de Productos y Precios "<< endl;
+        cout << "5. Salir"                                <<endl;
+        cout<<"------------------------------------------"<<endl;
+        << endl;
+
+        string opcion;
+        cin >> opcion;
+
+        switch (opcion[0]) {
+            case '1':
+                RegistrarProducto();
+                break;
+
+            case '2':
+                CalcularPrecioTotal();
+                break;
+
+            case '3':
+                EncontrarProductoMasCaro();
+                break;
+
+            case '4':
+                MostrarListaProductos();
+                break;
+
+            case '5':
+                cout << "saliendo del programa." << endl;
+                return 0;
+
+            default:
+                cout << "opción no válida  seleccione una opción válida." << endl;
+                break;
+        }
+    }
+
+    return 0;
+}
+
+int RegistrarProducto() {
+    if (cantidadProductos < maxproductos) {
+        float precio;
+        string producto;
+        cout << "ingrese el nombre del producto: ";
+        cin.ignore();
+        getline(cin, producto);
+        cout << "ingrese el precio del producto: ";
+        cin >> precio;
+
+        productos[cantidadProductos] = producto;
+        precios[cantidadProductos] = precio;
+        cantidadProductos++;
+        cout << "producto registrado con éxito." << endl;
+    } else {
+        cout << "no se pueden registrar más productos, la lista está llena." << endl;
+    }
+    return 0;
+}
+
+float CalcularPrecioTotal() {
+    float precioTotal = 0;
+    for (int i = 0; i < cantidadProductos; i++) {
+        precioTotal += precios[i];
+    }
+    cout << "precio Total: " << precioTotal << endl;
+    return precioTotal;
+}
+
+void EncontrarProductoMasCaro() {
+    if (cantidadProductos > 0) {
+        float precioMasAlto = precios[0];
+        string productoMasCaro = productos[0];
+        for (int i = 1; i < cantidadProductos; i++) {
+            if (precios[i] > precioMasAlto) {
+                precioMasAlto = precios[i];
+                productoMasCaro = productos[i];
+            }
+        }
+        cout << "producto más caro: " << productoMasCaro << " : " << precioMasAlto << endl;
+    } else {
+        cout << "no hay productos registrados." << endl;
+    }
+}
+
+void MostrarListaProductos() {
+    cout << "lista de productos y precios:" << endl;
+    for (int i = 0; i < cantidadProductos; i++) {
+        cout << productos[i] << " : " << precios[i] << endl;
+    }
+}
